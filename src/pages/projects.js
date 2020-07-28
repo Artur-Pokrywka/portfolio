@@ -1,12 +1,13 @@
 import React from "react"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
+import Pages from "../components/pages"
 
-
-const IndexPage = () => (
+const Projects = () => (
   <Layout>
-    <SEO title="Start" />
+    <SEO title="Projekty" />
+    <Pages />
   </Layout>
 );
 
-export default IndexPage
+export default Projects
