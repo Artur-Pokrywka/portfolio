@@ -6,6 +6,8 @@ const PagesWrapper = styled.div`
     display: flex;
     margin-top: 7rem; 
     margin-bottom: 1rem; 
+    width: 80vw;
+    padding 10vw;
 `;
 
 const PagesList = styled.ul`
@@ -18,6 +20,11 @@ const Page = styled.li`
 
 const PageLink = styled.a`
  text-decoration: none;
+ outline: none;
+ color: #000;
+ :focus {
+    outline:none;
+ }
 `;
 
 const ProjectsList = [

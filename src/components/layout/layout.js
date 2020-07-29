@@ -6,12 +6,9 @@ import Footer from "../../components/footer"
 import "./reset.css"
 
 const MainWrapper = styled.section`
-  width: 80%;
-  padding: 0 10%;
-  font-family: Montserrat;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
+  font-family: Open Sans;
+  color: #000;
 `;
 
 const Layout = ({ children }) => {

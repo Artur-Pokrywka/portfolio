@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
+import theme from "../utils/theme"
 
 
 const MainNavWrapper = styled.div`
@@ -16,19 +17,25 @@ const MainNavWrapper = styled.div`
 `;
 
 const MainNavList = styled.nav`
-    font-size: 1.4rem;
-    text-transform: uppercase;
+    font-size: 1.5rem;
     display: flex;
     list-style: none;
 `;
 
 const MainNavElement = styled.li`
     margin: 2rem;
+    letter-spacing: 0.1rem;   
 `;
 
 const StyledLink = styled(Link)`
-    color: #FFD700;
     text-decoration: none;
+    color: ${theme.colors.white};
+    :hover {
+        color: ${theme.colors.lime};
+    }
+    :focus {
+        outline:none;
+    }
 `;
 
 const MainNav = () => {
@@ -53,7 +60,7 @@ const MainNav = () => {
             {
                 Pages.map( page => 
                     <MainNavElement key={page.name}>
-                        <StyledLink to={page.link} activeClassName={"true"} activeStyle={{color: 'red'}}> {page.name} </StyledLink>
+                        <StyledLink to={page.link} activeClassName={"true"} activeStyle={{color: theme.colors.lime}}> {page.name} </StyledLink>
                     </MainNavElement> ) 
             }
         </MainNavList>
