@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import pic1 from "../images/pic-1.jpg"
 import theme from "../utils/theme"
+import img from "../images/bg/pic-1.jpg"
+
 
 const PageHeaderWrapper = styled.div`
-    background-image: url(${pic1});
+    background-image: url(${img});
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -29,6 +30,7 @@ const SubTitle = styled.h2`
 const SubText = styled.span`
     font-size: 2.5rem;
 `;
+
 
 const PageHeader = ({title, subtitle, subtext}) => {
     return ( 

@@ -1,9 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import MainNav from "../../components/main-nav"
 import Footer from "../../components/footer"
 import "./reset.css"
+import theme from "../../utils/theme"
 
 const MainWrapper = styled.section`
   width: 100vw;
@@ -13,11 +14,13 @@ const MainWrapper = styled.section`
 
 const Layout = ({ children }) => {
   return (
+    <ThemeProvider theme={theme}>
       <MainWrapper>
         <MainNav />
         {children} 
         <Footer />
       </MainWrapper>
+    </ThemeProvider>  
   )
 }
 

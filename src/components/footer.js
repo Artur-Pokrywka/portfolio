@@ -14,7 +14,10 @@ const FooterWrapper = styled.div`
 
 const FooterLink = styled.a`
     text-decoration: none;
-    
+    color: ${theme.colors.lime};
+    :focus {
+        outline:none;
+    }
 `;
 
 const Footer = () => {
@@ -22,7 +25,7 @@ const Footer = () => {
         <FooterWrapper>
             ©{new Date().getFullYear()}, Built with
             {` `}
-            <FooterLink href="https://www.gatsbyjs.org">Gatsby </FooterLink>
+            <FooterLink href="https://www.gatsbyjs.org" target="_blank">Gatsby </FooterLink>
         </FooterWrapper>
     )
 };
