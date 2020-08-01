@@ -10,6 +10,7 @@ const MainWrapper = styled.section`
   width: 100vw;
   font-family: Open Sans;
   color: #000;
+  box-sizing: border-box;
 `;
 
 const Layout = ({ children }) => {

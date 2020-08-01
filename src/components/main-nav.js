@@ -7,6 +7,7 @@ import theme from "../utils/theme"
 
 const MainNavWrapper = styled.div`
   height: 5rem;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,6 +15,7 @@ const MainNavWrapper = styled.div`
   position: fixed;
   top: 0;
   z-index: 1;
+  background: ${theme.colors.dark}
 `;
 
 const MainNavList = styled.nav`

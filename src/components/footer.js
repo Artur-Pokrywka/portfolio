@@ -5,7 +5,7 @@ import theme from "../utils/theme"
 
 const FooterWrapper = styled.div`
     color: #fff;
-    width: 80vw;
+    width: 100vw;
     padding: 0.5rem 10vw;
     position: fixed;
     bottom: 0;

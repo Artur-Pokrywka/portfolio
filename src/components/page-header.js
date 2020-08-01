@@ -17,14 +17,14 @@ const PageHeaderWrapper = styled.div`
 `;
 
 const PageHeaderTitle = styled.h1`
-    font-size: 7rem;
-    margin-left: 14rem; 
+    font-size: 8rem;
+    margin-right: 16rem;
 `;
 
 const SubTitle = styled.h2`
     margin-top: 2rem;
     font-size: 2rem;
-    margin-left: 14rem;
+    margin-right: 16rem;
 `;
 
 const SubText = styled.span`

@@ -1,64 +1,73 @@
  import React from "react" 
  import styled from "styled-components"
  import theme from "../utils/theme"
- import img1 from "../images/best-shop.png"
 
+ import img1 from "../images/projects/proj-1.jpg"
+ import img2 from "../images/projects/proj-2.jpg"
+ import img3 from "../images/projects/proj-3.jpg"
+ 
 
 const PagesWrapper = styled.div`
     display: flex;
-    margin-top: 7rem; 
-    margin-bottom: 1rem; 
     width: 80vw;
-    padding: 0 10vw;
+    justify-content: center;
+    margin: 7rem 10vw 3rem 10vw;
 `;
 
 const PagesList = styled.ul`
     font-size: 2rem;
+    display: flex;
 `;
 
 const Page = styled.li`
     background-size: cover;
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    width: 12rem;
-    height: 12rem;
-    margin: 2rem 0;
-    transition: width 1s, height 1s;
-    :hover {
-        width: 14rem;
-        height: 14rem;
-    }
+    margin: 2rem 0;   
+    position: relative;
 `;
 
 const PageLink = styled.a`
     text-decoration: none;
     outline: none;
     color: ${theme.colors.lime};
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80%;
+    text-align: center;
+    z-index: 1;
     opacity: 0;
-:hover {
-    opacity: 1;
-}
 :focus {
     outline:none;
 }
+:hover {
+    opacity: 1;
+}
+`;
+
+const PageImage = styled.img`
+    width: 24rem;
+    height: 20rem;
+    transition: width 1s, height 1s;
+    :hover ~${PageLink} {
+        opacity: 1;
+    }
 `;
 
 const ProjectsList = [
     {
-        name: "BestShop",
-        src: "https://bestshop.netlify.app",
+        name: "bestshop", 
+        src: "https://goldenn.netlify.app",
         img: img1
+    },
+    {
+        name: "awax",
+        src: "https://bestshop.netlify.app",
+        img: img2
     },
     {
         name: "off-design", 
         src: "https://off-design.netlify.app",
-        img: img1
-    },
-    {
-        name: "awax", 
-        src: "https://goldenn.netlify.app",
-        img: img1
+        img: img3
     },
 ]
 
@@ -69,13 +78,13 @@ const Pages = () => {
              <PagesList>
             {
                 ProjectsList.map( project =>
-                <Page key={project.name} style={{backgroundImage: `url(${project.img})`}}>
+                <Page key={project.name}>
+                    <PageImage src={project.img} alt="page image"/>
                     <PageLink href={project.src} target="_blank"> {project.name} </PageLink>
                 </Page> )
             }
             </PagesList>
         </PagesWrapper>
-       
     ) 
 }
 export default Pages
