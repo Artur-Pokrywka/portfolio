@@ -5,13 +5,13 @@ import ContactForm from "./contact-form"
 
 const ContactWrapper = styled.div`
    margin-top: 10rem;
-   width: 80vw;
    padding: 0 10vw;
    display: flex;
-   justify-content: space-between;
+   justify-content: space-around;
 `;
 
 const ContactInfo = styled.div`
+    width: 40vw;
     display: flex;
     flex-direction: column;
 `;
@@ -31,11 +31,20 @@ const ContactSubtitle = styled.h2`
     font-size: 3rem;
 `;
 
+const ContactText = styled.p`
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    line-height: 1.5;
+`;
+
+const text = "Jeżeli chciałbyś się przekonać w jaki sposób możemy wspólnie pracować nad projektem tak aby sprostał on Twoim wyobrażeniom skontaktuj się ze mną lub skorzystaj z formularza.";
+
 const ContactData = ({phone, mail}) => {
     return (
         <ContactWrapper>
             <ContactInfo>
                 <ContactSubtitle> Napisz do mnie </ContactSubtitle>
+                <ContactText>{text}</ContactText>
                 <ContactElemet> 
                     <StyledSpan> e-mail: </StyledSpan> {mail}    
                 </ContactElemet>

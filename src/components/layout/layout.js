@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import styled, { ThemeProvider } from "styled-components"
 import MainNav from "../../components/main-nav"
 import Footer from "../../components/footer"
+import 'bootstrap/dist/css/bootstrap.min.css'
 import "./reset.css"
 import theme from "../../utils/theme"
 

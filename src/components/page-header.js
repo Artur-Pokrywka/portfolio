@@ -1,12 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
-import img from "../images/bg/pic-1.jpg"
+import { graphql, useStaticQuery } from "gatsby"
+import BackgroundImage from "gatsby-background-image"
 
 
 const PageHeaderWrapper = styled.div`
-    background-image: url(${img});
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,13 +31,32 @@ const SubText = styled.span`
 `;
 
 
-const PageHeader = ({title, subtitle, subtext}) => {
+const PageHeader = ({ title, subtitle, subtext }) => {
+    const data = useStaticQuery(graphql`
+        query {
+            file(relativePath: { eq: "bg/pic-1.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 2000) {
+                ...GatsbyImageSharpFluid
+                }
+            }
+            }
+        }
+        `)
+
     return ( 
-        <PageHeaderWrapper>
-            <PageHeaderTitle>{title} <SubText>{subtext}</SubText> </PageHeaderTitle>
-            <SubTitle> {subtitle} </SubTitle>
-        </PageHeaderWrapper>    
+        <BackgroundImage
+                fluid={data.file.childImageSharp.fluid} alt="Monitor screen with code" 
+            >
+            <PageHeaderWrapper>
+            
+                <PageHeaderTitle>{title} <SubText>{subtext}</SubText> </PageHeaderTitle>
+                <SubTitle> {subtitle} </SubTitle>
+            
+            </PageHeaderWrapper>    
+        </BackgroundImage>
     )
 };
 
-export default PageHeader
+
+export default PageHeader;

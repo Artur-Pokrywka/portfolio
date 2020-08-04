@@ -15,6 +15,10 @@ const FooterWrapper = styled.div`
 const FooterLink = styled.a`
     text-decoration: none;
     color: ${theme.colors.lime};
+    :hover {
+        text-decoration: none;
+        color: ${theme.colors.lime};
+    }
     :focus {
         outline:none;
     }

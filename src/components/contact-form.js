@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
+import Button from "react-bootstrap/Button"
+
 
 const FormWrapper = styled.form`
     display: flex;
@@ -12,7 +14,7 @@ const InputsWrapper = styled.div`
 `;
 
 const FormElement = styled.input`
-    width: 10rem;
+    width: 12rem;
     height: 3rem;
     margin-right: 1rem;
     padding-left: 0.5rem;
@@ -26,7 +28,7 @@ const FormElement = styled.input`
 `;
 
 const FromMessage = styled.textarea`
-    width: 22rem;
+    width: 26rem;
     padding: 0.5rem 0 0 0.5rem;
     font-family: Open Sans;
     border-radius: 0.4rem;
@@ -36,22 +38,17 @@ const FromMessage = styled.textarea`
     }
 `;
 
-
-const FormButton = styled.button`
-    margin: 1rem 0;
+const FormButton = styled(Button)`
     width: 10rem;
     height: 3rem;
-    font-family: Open Sans;
-    border-radius: 0.4rem;
-    background-color: #fff;
-    border: 0.1rem solid ${theme.colors.dark}; 
-    font-weight: 700;
+    margin-top: 1rem;
+    color: ${theme.colors.lime};
+    border-color: ${theme.colors.lime}; 
     :hover {
         background-color: ${theme.colors.lime}; 
-        border-color: #fff;
-        color: #fff;  
     }
 `;
+
 
 const ContactForm = () => {
     return (
@@ -61,7 +58,7 @@ const ContactForm = () => {
                 <FormElement type="email" placeholder="Twój adres E-mail"/> 
             </InputsWrapper>   
             <FromMessage rows="5" placeholder="Wiadomość"/>
-            <FormButton type="submit" >Wyślij</FormButton>
+            <FormButton type="submit"variant="outline-success" >Wyślij</FormButton>
         </FormWrapper>
     )
 };

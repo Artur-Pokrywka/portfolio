@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import theme from "../utils/theme"
-
+import Navbar from "react-bootstrap/Navbar"
 
 const MainNavWrapper = styled.div`
   height: 5rem;
@@ -18,7 +18,7 @@ const MainNavWrapper = styled.div`
   background: ${theme.colors.dark}
 `;
 
-const MainNavList = styled.nav`
+const MainNavList = styled(Navbar)`
     font-size: 1.5rem;
     display: flex;
     list-style: none;
@@ -30,10 +30,11 @@ const MainNavElement = styled.li`
 `;
 
 const StyledLink = styled(Link)`
-    text-decoration: none;
+    
     color: ${theme.colors.white};
     :hover {
         color: ${theme.colors.lime};
+        text-decoration: none;
     }
     :focus {
         outline:none;

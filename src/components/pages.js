@@ -1,6 +1,7 @@
  import React from "react" 
  import styled from "styled-components"
  import theme from "../utils/theme"
+ import Image from "react-bootstrap/Image"
 
  import img1 from "../images/projects/proj-1.jpg"
  import img2 from "../images/projects/proj-2.jpg"
@@ -9,7 +10,6 @@
 
 const PagesWrapper = styled.div`
     display: flex;
-    width: 80vw;
     justify-content: center;
     margin: 7rem 10vw 3rem 10vw;
 `;
@@ -41,10 +41,12 @@ const PageLink = styled.a`
 }
 :hover {
     opacity: 1;
+    text-decoration: none;
+    color: ${theme.colors.lime};
 }
 `;
 
-const PageImage = styled.img`
+const PageImage = styled(Image)`
     width: 24rem;
     height: 20rem;
     transition: width 1s, height 1s;
@@ -56,12 +58,12 @@ const PageImage = styled.img`
 const ProjectsList = [
     {
         name: "bestshop", 
-        src: "https://goldenn.netlify.app",
+        src: "https://bestshop.netlify.app",
         img: img1
     },
     {
         name: "awax",
-        src: "https://bestshop.netlify.app",
+        src: "https://goldenn.netlify.app",
         img: img2
     },
     {
@@ -69,7 +71,7 @@ const ProjectsList = [
         src: "https://off-design.netlify.app",
         img: img3
     },
-]
+];
 
 
 const Pages = () => {
@@ -79,7 +81,7 @@ const Pages = () => {
             {
                 ProjectsList.map( project =>
                 <Page key={project.name}>
-                    <PageImage src={project.img} alt="page image"/>
+                    <PageImage src={project.img} alt="website small image" fixed/>
                     <PageLink href={project.src} target="_blank"> {project.name} </PageLink>
                 </Page> )
             }
