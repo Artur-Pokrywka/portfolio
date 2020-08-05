@@ -1,0 +1,13 @@
+.carousel-indicators {
+    padding-bottom: 1rem;
+}
+
+.carousel-indicators li {
+    height: 0.4rem;
+    margin: 0 0.5rem;
+    opacity: initial;
+}
+
+.carousel-indicators li.active {
+    background-color: rgb(122, 153, 9);
+}

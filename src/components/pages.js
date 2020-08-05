@@ -81,12 +81,13 @@ const Pages = () => {
             {
                 ProjectsList.map( project =>
                 <Page key={project.name}>
-                    <PageImage src={project.img} alt="website small image" fixed/>
+                    <PageImage src={project.img} alt="website small image on Mac" />
                     <PageLink href={project.src} target="_blank"> {project.name} </PageLink>
                 </Page> )
             }
             </PagesList>
         </PagesWrapper>
     ) 
-}
+};
+
 export default Pages

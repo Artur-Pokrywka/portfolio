@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
-import Button from "react-bootstrap/Button"
 
 
 const FormWrapper = styled.form`
@@ -38,14 +37,18 @@ const FromMessage = styled.textarea`
     }
 `;
 
-const FormButton = styled(Button)`
+const FormButton = styled.button`
     width: 10rem;
     height: 3rem;
     margin-top: 1rem;
-    color: ${theme.colors.lime};
-    border-color: ${theme.colors.lime}; 
+    color: #fff;
+    border: 1px solid ${theme.colors.lime}; 
+    border-radius: 4px;
+    background-color: ${theme.colors.lime};
+    outline-color: ${theme.colors.lime} !important;
     :hover {
-        background-color: ${theme.colors.lime}; 
+        background-color: #fff; 
+        color: ${theme.colors.lime};
     }
 `;
 
@@ -58,7 +61,7 @@ const ContactForm = () => {
                 <FormElement type="email" placeholder="Twój adres E-mail"/> 
             </InputsWrapper>   
             <FromMessage rows="5" placeholder="Wiadomość"/>
-            <FormButton type="submit"variant="outline-success" >Wyślij</FormButton>
+            <FormButton type="submit" >Wyślij</FormButton>
         </FormWrapper>
     )
 };

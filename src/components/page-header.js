@@ -40,19 +40,16 @@ const PageHeader = ({ title, subtitle, subtext }) => {
                 ...GatsbyImageSharpFluid
                 }
             }
-            }
         }
-        `)
+    }` )
 
     return ( 
         <BackgroundImage
                 fluid={data.file.childImageSharp.fluid} alt="Monitor screen with code" 
             >
             <PageHeaderWrapper>
-            
                 <PageHeaderTitle>{title} <SubText>{subtext}</SubText> </PageHeaderTitle>
-                <SubTitle> {subtitle} </SubTitle>
-            
+                <SubTitle> {subtitle} </SubTitle> 
             </PageHeaderWrapper>    
         </BackgroundImage>
     )

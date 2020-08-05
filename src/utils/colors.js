@@ -1,7 +1,7 @@
 const colors = {
     white: '#FDFEFE',
-    dark: '#212121',
-    lime: '#52bf38',
+    dark: '#232c29',
+    lime: '#7a9909',
 };
 
 export default colors;

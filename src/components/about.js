@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
-import Button from "react-bootstrap/Button"
 
 import photo from "../images/photo1.jpg"
+import cv from "../images/cv.pdf"
 
 
 const AboutWrapper = styled.div`
@@ -28,13 +28,21 @@ const AboutDescription = styled.p`
     margin: 1.5rem 0;
 `;
 
-const AboutButton = styled(Button)`
+const CvButton = styled.a`
     width: 10rem;
     height: 3rem;
-    color: ${theme.colors.lime};
-    border-color: ${theme.colors.lime}; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: ${theme.colors.lime};
+    border: 1px solid ${theme.colors.lime};
+    border-radius: 4px;
+    outline-color: solid ${theme.colors.lime};
     :hover {
-        background-color: ${theme.colors.lime}; 
+        text-decoration: none;
+        background-color: #fff; 
+        color: ${theme.colors.lime};
     }
 `;
 
@@ -50,9 +58,11 @@ const AboutMe = () => {
     return (
         <AboutWrapper>
             <AboutInfo>
-                <AboutTitle> Kilka słów o mnie</AboutTitle>
+                <AboutTitle> O mnie</AboutTitle>
                 <AboutDescription>{text}</AboutDescription>
-                <AboutButton variant="outline-success" >Zobacz moje CV </AboutButton>
+                <CvButton href={cv} target="_blank"> 
+                    Pobierz CV 
+                </CvButton>
             </AboutInfo>
             <AboutPhoto src={photo} alt="my photo"/>
         </AboutWrapper>

@@ -2,15 +2,18 @@ import React from "react"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/page-header"
-import AboutMe from "../components/about"
+import AboutMe from "../components/About"
+import TechStack from "../components/tech-stack"
+import Timeline from "../components/Timeline"
 
 
-const IndexPage = (props) => (
+const IndexPage = () => (
   <Layout>
-    <SEO title="Start" />
-    
+    <SEO title="Start" />  
     <PageHeader title="webart" subtext="portfolio" subtitle="Artur Pokrywka"/>
     <AboutMe />
+    <TechStack />
+    <Timeline />
   </Layout>
 );
 
