@@ -1,7 +1,7 @@
 import React from "react" 
 import styled from "styled-components"
 import theme from "../utils/theme"
-import ContactForm from "./contact-form"
+import ContactForm from "./Contact-form"
 
 const ContactWrapper = styled.div`
    margin-top: 10rem;
