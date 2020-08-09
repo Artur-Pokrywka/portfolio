@@ -11,7 +11,7 @@ import img3 from "../images/tech/ux.png"
 
 const CarouselWrapper = styled.div`
     height: fit-content;
-    color: #fff;
+    color: ${theme.colors.white};
     background-color: ${theme.colors.dark};
 `;
 

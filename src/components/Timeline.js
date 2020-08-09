@@ -1,88 +1,108 @@
-import React from "react" 
+import React from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
-import Image from "react-bootstrap/Image"
-
-import img from "../images/icon.png"
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/mystyle.css'
 
 
 const TimelineWrapper = styled.div`
-    width: 80wv;
-    margin: 0 10vw;
-    margin-bottom: 5rem;
+  margin: 4rem 0;
 `;
 
-const TimelineTitle = styled.h2`
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 4rem;
-`;
-
-const TimelineRow = styled.div`
-    width: 80vw;
-    display: flex;
-`;
-
-const SideElement = styled.div`
-    width: 40vw;
-    display: flex;
-    padding-top: 2rem;
-    justify-content: space-around;
-    border-right: 2px dashed ${theme.colors.dark};
-    border-bottom: 4px solid ${theme.colors.dark};
-`;
-
-const TextContainer = styled.div`
-    width: 20rem;
+const Content = styled.ul`
     display: flex;
     flex-direction: column;
+    list-style-type: disc;
 `;
 
-const ElementTitle = styled.h3`
-    font-size: 2rem;
+const ContentElement = styled.li`
+    line-height: initial;
     margin-bottom: 1rem;
-    text-transform: uppercase;
+    color: ${theme.colors.dark};
 `;
 
-const ElementText = styled.p`
-    line-height: 1.5;
-`;
-
-const ElementImage = styled(Image)`
-    width: 10rem;
-    height: 10rem;
-`;
-
-const Date = styled.div`
-    width: 15vw;
-    margin-right: 25rem;
-    font-size: 3rem;
-    padding-left: 2rem;
-    display: flex;
-    align-items: flex-end;
-    border-bottom: 1px solid ${theme.colors.dark};
-`;
-
+const Data = [
+  {
+    title: 'Umiejętności',
+    list: [
+      { main: 'HTML' }, { main: 'CSS i SASS' }, { main: 'JavaScript' }, { main: 'React' }, { main: 'Responsiwe Web Design' }, { main: 'Gatsby' }
+    ]
+  },
+  {
+    title: 'Doświadczenie',
+    list: [
+      {
+        main: 'Specjalista ds. pozyskiwania nieruchomości',
+        sub: 'Metrohouse Kraków'
+      },
+      {
+        main: 'Pośrednik w obrocie nieruchomościami',
+        sub: 'Indepro Nieruchomości Kraków'
+      }
+    ]
+  },
+  {
+    title: 'Języki obce',
+    list: [{main:'Język Angielski'}]
+  },
+  {
+    title: 'Wykształcenie',
+    list: [
+      {
+        main: ' Uniwersytet Ekonomiczny, Kraków',
+        sub: ' Gospodarka i administracja publiczna'
+      },
+      {
+        main: 'Gregory & Monsters, Kraków',
+        sub: 'Front-End Developer, Nauka programowania od podstaw'
+      },
+      {
+        main: 'Kodilla, Kraków',
+        sub: 'Web Developer, Kurs budowania stron i interfejsów aplikacji internetowych'
+      },
+      {
+        main: 'Coders Lab, Kraków',
+        sub: 'JavaScript Developer: React, Tworzenie stron i aplikacji webowych przy użyciu najpopulrniejszej biblioteki języka JavaScript'
+      },
+    ]
+  },
+  {
+    title: 'Zainteresowania',
+    list: [
+      {main:'enologia'}, {main:'literatura fantasy'}, {main:'kino science fiction'}, {main:'nowe technologie'}, {main:'rynek nieruchomości'}
+    ]
+  },
+];
 
 const Timeline = () => {
-    return (
-        <TimelineWrapper>
-            <TimelineTitle> Edukacja i Doświaczenie  </TimelineTitle>
-            <TimelineRow>
-                <SideElement>
-                    <TextContainer>
-                        <ElementTitle> tytuł </ElementTitle>
-                        <ElementText>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Aspernatur rem vitae corporis fugit possimus odit voluptas eligendi.
-                        </ElementText>
-                    </TextContainer>    
-                    <ElementImage src={img} />
-                </SideElement>     
-                <Date> 2010 </Date>  
-            </TimelineRow>
-        </TimelineWrapper>
-    )
+  return (
+    <TimelineWrapper>
+
+      <VerticalTimeline>
+        {
+          Data.map(elem =>
+            <VerticalTimelineElement key={elem.title}
+              className="vertical-timeline-element--content"
+              iconStyle={{ background: `${theme.colors.lime}`, color: `${theme.colors.white}` }}
+              date={elem.title}
+            // icon={<WorkIcon />}
+            >
+              <Content>
+                {
+                  elem.list.map(skill =>
+                    <ContentElement>
+                      {skill.main} <br /> {skill.sub}
+                    </ContentElement>
+                  )
+                }
+              </Content>
+            </VerticalTimelineElement>
+          )
+        }
+      </VerticalTimeline>
+    </TimelineWrapper>
+  )
 };
 
 export default Timeline
+
