@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
 import Form from "react-bootstrap/Form"
-import MyButton from "./MyButton"
+import MyButton from "./myButton"
 
 
 const FormWrapper = styled.div`
