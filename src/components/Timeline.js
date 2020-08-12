@@ -83,7 +83,6 @@ const Timeline = () => {
               className="vertical-timeline-element--content"
               iconStyle={{ background: `${theme.colors.lime}`, color: `${theme.colors.white}` }}
               date={elem.title}
-            // icon={<WorkIcon />}
             >
               <Content>
                 {

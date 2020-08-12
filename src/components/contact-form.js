@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
-import MyButton from "./myButton"
+import MyButton from "./my-button"
 
 const FormWrapper = styled.form`
     display: flex;
