@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
-import 'react-vertical-timeline-component/timeline.css'
+import "../components/layout/timeline.css"
 
 
 const TimelineWrapper = styled.div`
