@@ -3,11 +3,13 @@ import styled from "styled-components"
 import theme from "../utils/theme"
 import ContactForm from "./Contact-form"
 
+
 const ContactWrapper = styled.div`
    margin-top: 10rem;
    padding: 0 10vw;
    display: flex;
    justify-content: space-around;
+   color: ${theme.colors.dark};
 `;
 
 const ContactInfo = styled.div`

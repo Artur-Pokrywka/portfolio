@@ -52,6 +52,10 @@ const MainNav = () => {
           link: "/projects/"
         },
         {
+            name: "wycena",
+            link: "/valuation/"
+          },
+        {
           name: "kontakt",
           link: "/contact/"
         }, 

@@ -68,7 +68,7 @@ const SlideImage = styled(Image)`
     height: 20rem;
 `;
 
-const CarouselData =[
+const CarouselData = [
     {
         title:  "Front-end",
         text: `Swoje projekty koduję w zastosowaniu o najnowsze technologie, takie jak HTML5, CSS3 czy JavaScript. 

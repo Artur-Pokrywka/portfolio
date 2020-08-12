@@ -34,14 +34,14 @@ const CvButton = styled.a`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: ${theme.colors.white};
     background-color: ${theme.colors.lime};
     border: 1px solid ${theme.colors.lime};
     border-radius: 4px;
     outline-color: solid ${theme.colors.lime};
     :hover {
         text-decoration: none;
-        background-color: #fff; 
+        background-color: ${theme.colors.white}; 
         color: ${theme.colors.lime};
     }
 `;

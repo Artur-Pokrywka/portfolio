@@ -18,7 +18,6 @@ const Content = styled.ul`
 const ContentElement = styled.li`
     line-height: initial;
     margin-bottom: 1rem;
-    color: ${theme.colors.dark};
 `;
 
 const Data = [
@@ -77,7 +76,6 @@ const Data = [
 const Timeline = () => {
   return (
     <TimelineWrapper>
-
       <VerticalTimeline>
         {
           Data.map(elem =>
@@ -90,7 +88,7 @@ const Timeline = () => {
               <Content>
                 {
                   elem.list.map(skill =>
-                    <ContentElement>
+                    <ContentElement key={skill.main}>
                       {skill.main} <br /> {skill.sub}
                     </ContentElement>
                   )
