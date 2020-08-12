@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
 import Form from "react-bootstrap/Form"
@@ -52,7 +52,7 @@ const FormData = [
 
 const ValForm = () => {
     const [fullName, setFullName] = useState(''); 
-        const handleInputChange = () => { 
+        const handleInputChange = (e) => { 
             setFullName(e.target.value);
         };
    

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled, { ThemeProvider } from "styled-components"
 import MainNav from "../../components/Main-nav"
-import Footer from "../Footer"
+import Footer from "../../components/Footer"
 import "./reset.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import theme from "../../utils/theme"
