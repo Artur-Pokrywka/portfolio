@@ -45,7 +45,7 @@ const ContactForm = () => {
     };
 
     return (
-        <Form netlify
+        <Form 
             name="contact"
             method="post" 
             data-netlify="true"
