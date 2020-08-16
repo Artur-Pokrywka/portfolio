@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from "styled-components"
 import theme from "../utils/theme"
 import MyButton from "./my-button"
@@ -40,7 +40,34 @@ const FromMessage = styled.textarea`
 
 
 const ContactForm = () => {
+    const [formState, setFormState] = useState ({
+        name: "",
+        email: "",
+        message:""
+    });
+
+    const encode = (data) => {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+    };
+
+    const handleChange = (e) => {
+        setFormState({
+            ...formState,
+            [e.target.name]: e.target.value,
+        })
+    };
+
     const handleSubmit = (e) => {
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", ...formState })
+          })
+            .then(() => alert("Success!"))
+            .catch(error => alert(error));
+
         e.preventDefault();
         console.log("klik");
     };
@@ -54,12 +81,30 @@ const ContactForm = () => {
             onSubmit={handleSubmit}
         > 
             <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
+            {/* <input type="hidden" name="bot-field" /> */}
             <InputsWrapper>
-                <FormInput name="name" type="text" placeholder="Imię i Nazwisko"/>             
-                <FormInput name="email" type="email" placeholder="Twój adres E-mail"/> 
+                <FormInput 
+                    name="name" 
+                    type="text" 
+                    placeholder="Imię i Nazwisko"
+                    value={formState.name} 
+                    onChange={handleChange} 
+                />             
+                <FormInput 
+                    name="email" 
+                    type="email" 
+                    placeholder="Twój adres E-mail"
+                    value={formState.email}  
+                    onChange={handleChange} 
+                /> 
             </InputsWrapper>   
-            <FromMessage name="message" rows="5" placeholder="Wiadomość"/>
+            <FromMessage 
+                name="message" 
+                rows="5" 
+                placeholder="Wiadomość"
+                value={formState.message}  
+                onChange={handleChange} 
+            />
             <MyButton type="submit" text='Wyślij'> </MyButton>
         </Form>
     )
