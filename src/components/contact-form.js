@@ -53,8 +53,8 @@ const ContactForm = () => {
             data-netlify-honeypot="bot-field"  
             onSubmit={handleSubmit}
         > 
-            <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
             <InputsWrapper>
                 <FormInput name="name" type="text" placeholder="Imię i Nazwisko"/>             
                 <FormInput name="email" type="email" placeholder="Twój adres E-mail"/> 
