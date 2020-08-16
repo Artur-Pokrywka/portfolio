@@ -3,7 +3,7 @@ import styled from "styled-components"
 import theme from "../utils/theme"
 import MyButton from "./my-button"
 
-const FormWrapper = styled.form`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
 `;
@@ -12,7 +12,7 @@ const InputsWrapper = styled.div`
     margin: 1rem 0;
 `;
 
-const FormElement = styled.input`
+const FormInput = styled.input`
     width: 12rem;
     height: 3rem;
     margin-right: 1rem;
@@ -40,15 +40,25 @@ const FromMessage = styled.textarea`
 
 
 const ContactForm = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
     return (
-        <FormWrapper method="post" action="#">
+        <Form netlify
+            name="contact"
+            method="post" 
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"  
+            onSubmit={handleSubmit}
+        >
             <InputsWrapper>
-            <FormElement type="text" placeholder="Imię i Nazwisko"/>             
-                <FormElement type="email" placeholder="Twój adres E-mail"/> 
+                <FormInput name="name" type="text" placeholder="Imię i Nazwisko"/>             
+                <FormInput name="email" type="email" placeholder="Twój adres E-mail"/> 
             </InputsWrapper>   
             <FromMessage rows="5" placeholder="Wiadomość"/>
             <MyButton type="submit" text='Wyślij'> </MyButton>
-        </FormWrapper>
+        </Form>
     )
 };
 

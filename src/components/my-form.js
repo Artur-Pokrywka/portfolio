@@ -24,11 +24,19 @@ const StyledInput = styled(Form.Control)`
 
 const FormData = [
     {
+        type: 'radio',
+        title: 'Czy posiadają już Państwo stronę WWW?',
+        options: ['Tak', 'Nie'],
+        id: 'form-0'
+    },
+    {
+        type: 'radio',
         title: 'Strona responsywna',
         options: ['Tak', 'Nie'],
         id: 'form-1'
     },
     {
+        type: 'radio',
         title: 'Projekt graficzny',
         options: [
             'Projekt podstawowy', 'Dostarczę projekt graficzny', 'Indywidualny projekt graficzny stworzony przez profesjonalnego grafika'
@@ -36,6 +44,7 @@ const FormData = [
         id: 'form-2'
     },
     {
+        type: 'radio',
         title: 'Tekst na stronę',
         options: [
             'Dostarczę tekst', 'Zlecę napisanie tekstu'
@@ -43,10 +52,30 @@ const FormData = [
         id: 'form-3'
     },
     {
+        type: 'radio',
         title: 'Strona wielojęzyczna',
         options: ['Tak', 'Nie'],
         id: 'form-4'
-    }
+    },
+    {
+        type: 'radio',
+        title: 'Główny cel strony',
+        options: ['Wizerunek marki', 'Sprzedaż', 'rezentacja oferty'],
+        id: 'form-5'
+    },
+    {
+        type: 'checkbox',
+        title: 'Preferowana kolorystyka projektu',
+        options: ['Ciemna', 'Jasna', 'Mała ilość kolorów', 'Duża ilość kolorów', 'Kolory stonowane', 'Kolory wyraziste', 'jeden kolor wiodący + kolor kontrastujący'],
+        id: 'form-6'
+    },
+    {
+        type: 'checkbox',
+        title: 'Stylistyka projektu',
+        options: ['Minimalistyczna', 'Nowoczesna', 'Elegancka', 'Prosta', 'Stonowana', 'Duża ilość grafiki', 'Duża ilość zdjęć'],
+        id: 'form-7'
+    },
+
 ];
 
 
@@ -93,7 +122,7 @@ const ValForm = () => {
                                         data.options.map( option =>
                                             <Form.Check
                                                 key={Math.random()}
-                                                type="radio"
+                                                type={data.type}
                                                 label={option}
                                                 name={data.id}
                                                 id={data.id}
