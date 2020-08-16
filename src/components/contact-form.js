@@ -42,16 +42,19 @@ const FromMessage = styled.textarea`
 const ContactForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("klik");
     };
 
     return (
-        <Form netlify
+        <Form 
             name="contact"
             method="post" 
             data-netlify="true"
             data-netlify-honeypot="bot-field"  
             onSubmit={handleSubmit}
         > 
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact" />
             <InputsWrapper>
                 <FormInput name="name" type="text" placeholder="Imię i Nazwisko"/>             
                 <FormInput name="email" type="email" placeholder="Twój adres E-mail"/> 
