@@ -33,7 +33,7 @@ const FormData = [
         type: 'radio',
         title: 'Strona responsywna',
         options: ['Tak', 'Nie'],
-        id: 'form-1'
+        id: 'responsive'
     },
     {
         type: 'radio',
@@ -85,6 +85,7 @@ const ValForm = () => {
         email: "",
         project: "",
         website: "",
+        info: ""
     }); 
 
     const encode = (data) => {
@@ -160,7 +161,8 @@ const ValForm = () => {
                 </Form.Group>
                     {
                         FormData.map( data => 
-                            <Form.Group key={data.title}>
+                            <Form.Group key={data.title} >
+
                                 <Label >
                                     {data.title}
                                 </Label>
@@ -172,7 +174,7 @@ const ValForm = () => {
                                                 label={option}
                                                 name={data.id}
                                                 id={option}
-                                                value={valuationState.website} 
+                                                value={valuationState.website}
                                                 // onChange={handleChange}  
                                             />
                                         )
@@ -182,8 +184,14 @@ const ValForm = () => {
                     }
                 <Form.Group controlId="ControlTextarea1">
                     <Label>Dodatkowe informacje</Label>
-                    <Input as="textarea" className={'form-control'} rows="3" 
+                    <Input 
+                        as="textarea" 
+                        className={'form-control'} 
+                        rows="3" 
                         placeholder="Proszę napisz tutaj czego oczekujesz od nowej strony (np. inspiracje z istniejącyh już stron internetowych, dodatkowe usługi takie jak SEO itp.)"
+                        name="info"
+                        value={valuationState.info} 
+                        onChange={handleChange} 
                     />
                 </Form.Group>
                 <MyButton type="submit" text='Wyślij' /> 
