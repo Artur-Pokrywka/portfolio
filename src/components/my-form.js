@@ -104,7 +104,7 @@ const ValForm = () => {
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...valuationState })
+            body: encode({ "form-name": "valuation", ...valuationState })
         })
             .then(() => alert("Dziękuję za wypełnienie zgłoszenia!"))
             .catch(error => alert(error));
