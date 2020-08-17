@@ -55,7 +55,7 @@ const ContactForm = () => {
     const handleChange = (e) => {
         setFormState({
             ...formState,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value
         })
     };
 
@@ -64,24 +64,22 @@ const ContactForm = () => {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...formState })
-          })
-            .then(() => alert("Success!"))
+        })
+            .then(() => alert("Dziękuję za przesłanie wiadomości!"))
             .catch(error => alert(error));
 
         e.preventDefault();
-        console.log("klik");
     };
 
     return (
         <Form 
             name="contact"
-            method="post" 
+            method="POST" 
             data-netlify="true"
             data-netlify-honeypot="bot-field"  
             onSubmit={handleSubmit}
         > 
             <input type="hidden" name="form-name" value="contact" />
-            {/* <input type="hidden" name="bot-field" /> */}
             <InputsWrapper>
                 <FormInput 
                     name="name" 
@@ -105,7 +103,7 @@ const ContactForm = () => {
                 value={formState.message}  
                 onChange={handleChange} 
             />
-            <MyButton type="submit" text='Wyślij'> </MyButton>
+            <MyButton type="submit" text='Wyślij' />
         </Form>
     )
 };

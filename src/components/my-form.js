@@ -14,7 +14,7 @@ const Label = styled(Form.Label)`
    font-size: 1.5rem;
 `;
 
-const StyledInput = styled(Form.Control)`
+const Input = styled(Form.Control)`
     border: 1px solid ${theme.colors.dark};
     :focus {
         border-color: ${theme.colors.lime};
@@ -27,7 +27,7 @@ const FormData = [
         type: 'radio',
         title: 'Czy posiadają już Państwo stronę WWW?',
         options: ['Tak', 'Nie'],
-        id: 'form-0'
+        id: 'website'
     },
     {
         type: 'radio',
@@ -60,7 +60,7 @@ const FormData = [
     {
         type: 'radio',
         title: 'Główny cel strony',
-        options: ['Wizerunek marki', 'Sprzedaż', 'rezentacja oferty'],
+        options: ['Wizerunek marki', 'Sprzedaż', 'Prezentacja oferty'],
         id: 'form-5'
     },
     {
@@ -80,37 +80,83 @@ const FormData = [
 
 
 const ValForm = () => {
-    const [fullName, setFullName] = useState(''); 
-        const handleInputChange = (e) => { 
-            setFullName(e.target.value);
-        };
+    const [valuationState, setValuationState] = useState({
+        name: "",
+        email: "",
+        project: "",
+        website: "",
+    }); 
+
+    const encode = (data) => {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+    };
+
+    const handleChange = (e) => { 
+        setValuationState({
+            ...valuationState,
+            [e.target.name]: e.target.value
+        })
+    };
    
-        const handleSubmit = (e) => {   
-            e.preventDefault();
-            console.log(fullName);
-        };  
-    
+    const handleSubmit = (e) => { 
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", ...valuationState })
+        })
+            .then(() => alert("Dziękuję za wypełnienie zgłoszenia!"))
+            .catch(error => alert(error));
+
+        e.preventDefault();
+    };      
 
     return (
         <FormWrapper>
-            <Form onSubmit={handleSubmit} >
+            <Form
+                name="valuation"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field" 
+                onSubmit={handleSubmit} 
+            >
+                <input type="hidden" name="form-name" value="contact" />
                 <Form.Group controlId="formBasicName">
                     <Label> Imię i nazwisko </Label>
-                    <StyledInput type="text" placeholder="Imię i nazwisko lub nazwa firmy" onChange={handleInputChange} />
+                    <Input 
+                        name="name"
+                        type="text" 
+                        placeholder="Imię i nazwisko lub nazwa firmy"
+                        value={valuationState.name} 
+                        onChange={handleChange} 
+                    />
                 </Form.Group>
                 <Form.Group controlId="formBasicEmail">
                     <Label> E-mail </Label>
-                    <StyledInput type="email" placeholder="Twój adres e-mail" />
+                    <Input 
+                        name="email"
+                        type="email" 
+                        placeholder="Twój adres e-mail"
+                        value={valuationState.email} 
+                        onChange={handleChange}  
+                    />
                 </Form.Group>
                 <Form.Group controlId="controlSelect1">
                     <Label> Rodzaj projektu </Label>
-                    <StyledInput as="select" className={'form-control'} >
-                        <option>Strona osobista / wizytówka firmy</option>
-                        <option>Portfolio</option>
-                        <option>Sklep internetowy</option>
-                        <option>Blog</option>
-                        <option>Inny</option>
-                    </StyledInput>
+                    <Input 
+                        as="select" 
+                        className={'form-control'} 
+                        name="project"
+                        value={valuationState.project} 
+                        onChange={handleChange}  
+                    >    
+                            <option>Strona osobista / wizytówka firmy</option>
+                            <option>Portfolio</option>
+                            <option>Sklep internetowy</option>
+                            <option>Blog</option>
+                            <option>Inny</option>
+                    </Input>
                 </Form.Group>
                     {
                         FormData.map( data => 
@@ -125,7 +171,9 @@ const ValForm = () => {
                                                 type={data.type}
                                                 label={option}
                                                 name={data.id}
-                                                id={data.id}
+                                                id={option}
+                                                value={valuationState.website} 
+                                                // onChange={handleChange}  
                                             />
                                         )
                                     }
@@ -134,7 +182,7 @@ const ValForm = () => {
                     }
                 <Form.Group controlId="ControlTextarea1">
                     <Label>Dodatkowe informacje</Label>
-                    <StyledInput as="textarea" className={'form-control'} rows="3" 
+                    <Input as="textarea" className={'form-control'} rows="3" 
                         placeholder="Proszę napisz tutaj czego oczekujesz od nowej strony (np. inspiracje z istniejącyh już stron internetowych, dodatkowe usługi takie jak SEO itp.)"
                     />
                 </Form.Group>
